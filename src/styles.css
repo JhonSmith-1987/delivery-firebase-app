@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+.card_content {
+  margin: 4rem 0;
+  padding: 1rem;
+}
+.title {
+  font-size: 45px;
+  font-family: "Agency FB";
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  color: darkcyan;
+}
+.card_option {
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+.display_flex_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.padding_home {
+  padding: 4rem 0;
+}
+.display_flex_row {
+  display: flex;
+  flex-direction: row;
+}
+.close {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+.option {
+  background: darkcyan;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.add_delivery_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
