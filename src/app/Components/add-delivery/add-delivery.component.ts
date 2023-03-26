@@ -49,7 +49,7 @@ export class AddDeliveryComponent implements OnInit {
     }
     let delivery:DtoDelivery = {
       "type_transaction": 'delivery',
-      "date": '2023-03-24',
+      "date": this.today.todayDate(),
       "detail": this.formDelivery.value.detail,
       "base": this.formDelivery.value.base,
       "value": this.formDelivery.value.value,

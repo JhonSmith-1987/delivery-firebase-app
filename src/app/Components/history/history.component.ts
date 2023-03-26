@@ -4,6 +4,7 @@ import {DtoResultDeliveryToday} from "../../Dto/DtoResultDeliveryToday";
 import {ApiServiceService} from "../../Services/api-service.service";
 import {DateServiceService} from "../../Services/date-service.service";
 import {AlertServiceService} from "../../Services/alert-service.service";
+import {ExportPdfService} from "../../Services/export-pdf.service";
 
 @Component({
   selector: 'app-history',
@@ -46,12 +47,20 @@ export class HistoryComponent implements OnInit {
   constructor(
     private api:ApiServiceService,
     private date:DateServiceService,
-    private alert:AlertServiceService
+    private alert:AlertServiceService,
+    private pdf:ExportPdfService
   ) { }
 
   ngOnInit(): void {
     this.getDelivery();
     this.getResultDelivery();
+  }
+
+  printPdf() {
+    let DATA: any = document.getElementById('history_delivery');
+    let name_file:string = 'Historial';
+    this.pdf.openPDF(DATA, name_file);
+    this.alert.alertOk('Descarga satisfactoria');
   }
 
   showTableTotal() {

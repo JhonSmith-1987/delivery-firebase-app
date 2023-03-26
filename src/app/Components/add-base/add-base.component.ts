@@ -28,7 +28,7 @@ export class AddBaseComponent implements OnInit {
   addBase() {
     let delivery:DtoDelivery = {
       "type_transaction": 'base',
-      "date": '2023-03-24',
+      "date": this.today.todayDate(),
       "detail": this.detail,
       "base": this.base,
       "value": 0,

@@ -4,6 +4,7 @@ import {ApiServiceService} from "../../Services/api-service.service";
 import {DateServiceService} from "../../Services/date-service.service";
 import {DtoResultDeliveryToday} from "../../Dto/DtoResultDeliveryToday";
 import {AlertServiceService} from "../../Services/alert-service.service";
+import {ExportPdfService} from "../../Services/export-pdf.service";
 
 @Component({
   selector: 'app-delivery',
@@ -28,12 +29,20 @@ export class DeliveryComponent implements OnInit {
   constructor(
     private api:ApiServiceService,
     private date:DateServiceService,
-    private alert:AlertServiceService
+    private alert:AlertServiceService,
+    private pdf:ExportPdfService
   ) { }
 
   ngOnInit(): void {
     this.getDelivery();
     this.getResultDelivery();
+  }
+
+  printPdf() {
+    let DATA: any = document.getElementById('delivery');
+    let name_file:string = 'Mis domicilios ' + this.date.todayDate();
+    this.pdf.openPDF(DATA, name_file);
+    this.alert.alertOk('Descarga satisfactoria');
   }
 
   getResultDelivery() {

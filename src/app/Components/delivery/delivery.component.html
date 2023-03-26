@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="card card_content">
+      <div id="delivery" class="card card_content">
         <div class="close">
           <button type="button" class="btn-close" aria-label="Close" routerLink="/home"></button>
         </div>
@@ -11,6 +11,7 @@
             <div class="col-4 display_flex_col">
               <button class="btn btn-success" routerLink="/add-base">Agregar base</button>
               <button class="btn btn-success" routerLink="/add-delivery">Agregar domicilio</button>
+              <button class="btn btn-success" (click)="printPdf()">Imprimir</button>
             </div>
             <div class="col-8">
               <div class="row display_flex_row">
