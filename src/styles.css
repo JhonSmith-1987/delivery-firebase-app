@@ -49,3 +49,20 @@
   align-items: center;
   gap: 1rem;
 }
+.align_right {
+  text-align: right;
+}
+.align_center {
+  text-align: center;
+}
+.img_delete {
+  width: 20px;
+  cursor: pointer;
+}
+.cont_btn_filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}

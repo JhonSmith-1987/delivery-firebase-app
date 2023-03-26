@@ -6,26 +6,30 @@
           <button type="button" class="btn-close" aria-label="Close" routerLink="/delivery"></button>
         </div>
         <h1 class="title">Agregar domicilio</h1>
-        <form class="add_delivery_form">
+        <form [formGroup]="formDelivery" (ngSubmit)="addDelivery()" class="add_delivery_form">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="detail">
+            <input formControlName="detail" type="text" class="form-control" id="detail">
             <label for="detail">Detalle del domicilio</label>
           </div>
           <div class="form-floating">
-            <input type="number" class="form-control" id="value">
+            <input formControlName="value" type="number" class="form-control" id="value">
             <label for="value">Valor del domicilio</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="credit">
+            <input formControlName="type" class="form-check-input" value="credit" type="radio" id="credit">
             <label class="form-check-label" for="credit">
               Crédito
             </label>
           </div>
           <div class="form-floating">
-            <input type="number" class="form-control" id="spent">
+            <input formControlName="spent" type="number" class="form-control" id="spent">
             <label for="spent">Gastos en el domicilio</label>
           </div>
-          <button class="btn btn-primary">Crear</button>
+          <div class="form-floating mb-3">
+            <input formControlName="base" type="number" class="form-control" id="base">
+            <label for="base">Base adicional</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
       </div>
     </div>

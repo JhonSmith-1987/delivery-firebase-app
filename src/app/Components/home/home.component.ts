@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {AlertServiceService} from "../../Services/alert-service.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user_name: string | null  = sessionStorage.getItem('userName');
+
+  constructor(
+    private router:Router,
+    private alert:AlertServiceService
+  ) { }
 
   ngOnInit(): void {
+    if (this.user_name === null) {
+      this.router.navigate(['/login']);
+    }
   }
 
+  logout() {
+    sessionStorage.clear();
+    this.alert.alertOk('Has cerrado tu sesión correctamente, vuelve pronto');
+    this.router.navigate(['/login']);
+  }
 }

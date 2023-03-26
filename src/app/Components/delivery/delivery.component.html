@@ -19,19 +19,19 @@
                     <thead>
                     <tr>
                       <th scope="col">Cantidad domicilios</th>
-                      <td>10</td>
+                      <td>{{resultDeliveryToday.delivery_quantity}}</td>
                     </tr>
                     <tr>
                       <th scope="col">Total base</th>
-                      <td>10000</td>
+                      <td>{{resultDeliveryToday.base_total}}</td>
                     </tr>
                     <tr>
                       <th scope="col">Total domicilios</th>
-                      <td>120000</td>
+                      <td>{{resultDeliveryToday.full_delivery}}</td>
                     </tr>
                     <tr>
                       <th scope="col">Total gastos</th>
-                      <td>30000</td>
+                      <td>{{resultDeliveryToday.total_spent}}</td>
                     </tr>
                     </thead>
                   </table>
@@ -41,19 +41,19 @@
                     <thead>
                     <tr>
                       <th scope="col">75% domiciliario</th>
-                      <td>325000</td>
+                      <td>{{resultDeliveryToday.delivery_percentage}}</td>
                     </tr>
                     <tr>
                       <th scope="col">25% empresa</th>
-                      <td>4520000</td>
+                      <td>{{resultDeliveryToday.company_percentage}}</td>
                     </tr>
                     <tr>
                       <th scope="col">bolsillo</th>
-                      <td>62000</td>
+                      <td>{{resultDeliveryToday.pocket}}</td>
                     </tr>
                     <tr>
                       <th scope="col">Total</th>
-                      <td>235420</td>
+                      <td>{{resultDeliveryToday.total}}</td>
                     </tr>
                     </thead>
                   </table>
@@ -69,18 +69,22 @@
                   <tr>
                     <th scope="col">Fecha</th>
                     <th scope="col">Detalle</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Crédito</th>
-                    <th scope="col">Gasto</th>
+                    <th class="align_center" scope="col">Bases</th>
+                    <th class="align_center" scope="col">Valor</th>
+                    <th class="align_center" scope="col">Crédito</th>
+                    <th class="align_center" scope="col">Gasto</th>
+                    <th class="align_center" scope="col">Eliminar</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let delivery of deliveryListToday">
+                    <td>{{delivery.date}}</td>
+                    <td>{{delivery.detail}}</td>
+                    <td class="align_right">{{delivery.base}}</td>
+                    <td class="align_right">{{delivery.value}}</td>
+                    <td class="align_right">{{delivery.credit}}</td>
+                    <td class="align_right">{{delivery.spent}}</td>
+                    <td class="align_center" (click)="deleteDelivery(delivery.id)"><img class="img_delete" src="assets/img/delete.png"></td>
                   </tr>
                   </tbody>
                 </table>
