@@ -66,3 +66,15 @@
   justify-content: space-around;
   gap: 15px;
 }
+
+@media screen and (max-device-width: 576px) and (orientation: portrait) {
+  .display_flex_row {
+    margin-top: 1rem;
+  }
+  .cont_table {
+    overflow-y: scroll;
+  }
+  .title {
+    margin-top: 2rem;
+  }
+}
